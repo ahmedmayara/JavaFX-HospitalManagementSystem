@@ -1,4 +1,4 @@
-module com.ahmed.miniprojetjavafx {
+module com.ahmedAndkhalil.miniprojetjavafx {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;

@@ -51,25 +51,39 @@ public class AuthController {
         } else {
             Connection connection = databaseConnection.getConnection();
 
-            String verifyLogin = "SELECT count(1) FROM users WHERE username = '" + usernameField.getText() + "' AND password = '" + passwordField.getText() + "'";
-
+            String checkLoginAndRoleQuery = "SELECT * FROM users WHERE username = ? AND password = ?";
             try {
-                var preparedStatement = connection.prepareStatement(verifyLogin);
+                var preparedStatement = connection.prepareStatement(checkLoginAndRoleQuery);
+                preparedStatement.setString(1, usernameField.getText());
+                preparedStatement.setString(2, passwordField.getText());
                 var resultSet = preparedStatement.executeQuery();
-                while (resultSet.next()) {
-                    if (resultSet.getInt(1) == 1) {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndkhalil/miniprojetjavafx/dashboard.fxml"));
+                if (resultSet.next()) {
+                    String role = resultSet.getString("role");
+                    if (role.equals("ADMIN")) {
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndKhalil/miniprojetjavafx/admin.fxml"));
                         Stage stage = (Stage) loginButton.getScene().getWindow();
-                        stage.setTitle("Hospital Management System - Dashboard");
+                        stage.setTitle("Hospital Management System - Admin");
                         stage.setScene(new Scene(fxmlLoader.load(), 600, 400));
                         stage.show();
-                    } else {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Error");
-                        alert.setHeaderText("Login failed");
-                        alert.setContentText("Invalid username or password");
-                        alert.showAndWait();
+                    } else if (role.equals("DOCTEUR")) {
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndKhalil/miniprojetjavafx/doctor-dashboard.fxml"));
+                        Stage stage = (Stage) loginButton.getScene().getWindow();
+                        stage.setTitle("Hospital Management System - Doctor");
+                        stage.setScene(new Scene(fxmlLoader.load(), 600, 400));
+                        stage.show();
+                    } else if (role.equals("INFERMIER")) {
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndKhalil/miniprojetjavafx/patient.fxml"));
+                        Stage stage = (Stage) loginButton.getScene().getWindow();
+                        stage.setTitle("Hospital Management System - Patient");
+                        stage.setScene(new Scene(fxmlLoader.load(), 600, 400));
+                        stage.show();
                     }
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Invalid credentials");
+                    alert.setContentText("Please check your credentials");
+                    alert.showAndWait();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -83,7 +97,7 @@ public class AuthController {
 
     public void handleRegister() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndkhalil/miniprojetjavafx/register.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmed/miniprojetjavafx/register.fxml"));
             Stage stage = (Stage) registerLink.getScene().getWindow();
             stage.setTitle("Hospital Management System - Register");
             stage.setScene(new Scene(fxmlLoader.load(), 600, 400));
@@ -115,7 +129,7 @@ public class AuthController {
                     alert.setHeaderText("Registration successful");
                     alert.setContentText("You can now login");
                     alert.showAndWait();
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndkhalil/miniprojetjavafx/login.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmed/miniprojetjavafx/login.fxml"));
                     Stage stage = (Stage) registerButton.getScene().getWindow();
                     stage.setTitle("Hospital Management System - Login");
                     stage.setScene(new Scene(fxmlLoader.load(), 600, 400));
