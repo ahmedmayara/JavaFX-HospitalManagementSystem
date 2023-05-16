@@ -63,19 +63,19 @@ public class AuthController {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndKhalil/miniprojetjavafx/admin.fxml"));
                         Stage stage = (Stage) loginButton.getScene().getWindow();
                         stage.setTitle("Hospital Management System - Admin");
-                        stage.setScene(new Scene(fxmlLoader.load(), 600, 400));
+                        stage.setScene(new Scene(fxmlLoader.load()));
                         stage.show();
                     } else if (role.equals("DOCTEUR")) {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndKhalil/miniprojetjavafx/doctor-dashboard.fxml"));
                         Stage stage = (Stage) loginButton.getScene().getWindow();
                         stage.setTitle("Hospital Management System - Doctor");
-                        stage.setScene(new Scene(fxmlLoader.load(), 600, 400));
+                        stage.setScene(new Scene(fxmlLoader.load()));
                         stage.show();
                     } else if (role.equals("INFERMIER")) {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndKhalil/miniprojetjavafx/patient.fxml"));
                         Stage stage = (Stage) loginButton.getScene().getWindow();
                         stage.setTitle("Hospital Management System - Patient");
-                        stage.setScene(new Scene(fxmlLoader.load(), 600, 400));
+                        stage.setScene(new Scene(fxmlLoader.load()));
                         stage.show();
                     }
                 } else {
