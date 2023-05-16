@@ -1,4 +1,4 @@
-package com.ahmed.miniprojetjavafx;
+package com.ahmedAndkhalil.miniprojetjavafx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

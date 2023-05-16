@@ -1,4 +1,4 @@
-package com.ahmed.miniprojetjavafx;
+package com.ahmedAndkhalil.miniprojetjavafx;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

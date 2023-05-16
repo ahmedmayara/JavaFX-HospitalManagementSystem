@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.ahmed.miniprojetjavafx.controllers.DashboardController"
+            fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.DashboardController"
             prefHeight="400.0" prefWidth="600.0">
 
 </AnchorPane>

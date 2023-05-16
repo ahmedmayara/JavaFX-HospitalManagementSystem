@@ -5,9 +5,9 @@ module com.ahmed.miniprojetjavafx {
     requires mysql.connector.java;
 
 
-    opens com.ahmed.miniprojetjavafx to javafx.fxml;
-    opens com.ahmed.miniprojetjavafx.controllers to javafx.fxml;
-    exports com.ahmed.miniprojetjavafx;
-    exports com.ahmed.miniprojetjavafx.controllers;
-    exports com.ahmed.miniprojetjavafx.database;
+    opens com.ahmedAndkhalil.miniprojetjavafx to javafx.fxml;
+    opens com.ahmedAndkhalil.miniprojetjavafx.controllers to javafx.fxml;
+    exports com.ahmedAndkhalil.miniprojetjavafx;
+    exports com.ahmedAndkhalil.miniprojetjavafx.controllers;
+    exports com.ahmedAndkhalil.miniprojetjavafx.database;
 }

@@ -1,6 +1,6 @@
-package com.ahmed.miniprojetjavafx.controllers;
+package com.ahmedAndkhalil.miniprojetjavafx.controllers;
 
-import com.ahmed.miniprojetjavafx.database.DatabaseConnection;
+import com.ahmedAndkhalil.miniprojetjavafx.database.DatabaseConnection;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,7 +58,7 @@ public class AuthController {
                 var resultSet = preparedStatement.executeQuery();
                 while (resultSet.next()) {
                     if (resultSet.getInt(1) == 1) {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmed/miniprojetjavafx/dashboard.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndkhalil/miniprojetjavafx/dashboard.fxml"));
                         Stage stage = (Stage) loginButton.getScene().getWindow();
                         stage.setTitle("Hospital Management System - Dashboard");
                         stage.setScene(new Scene(fxmlLoader.load(), 600, 400));
@@ -83,7 +83,7 @@ public class AuthController {
 
     public void handleRegister() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmed/miniprojetjavafx/register.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndkhalil/miniprojetjavafx/register.fxml"));
             Stage stage = (Stage) registerLink.getScene().getWindow();
             stage.setTitle("Hospital Management System - Register");
             stage.setScene(new Scene(fxmlLoader.load(), 600, 400));
@@ -115,7 +115,7 @@ public class AuthController {
                     alert.setHeaderText("Registration successful");
                     alert.setContentText("You can now login");
                     alert.showAndWait();
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmed/miniprojetjavafx/login.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndkhalil/miniprojetjavafx/login.fxml"));
                     Stage stage = (Stage) registerButton.getScene().getWindow();
                     stage.setTitle("Hospital Management System - Login");
                     stage.setScene(new Scene(fxmlLoader.load(), 600, 400));
