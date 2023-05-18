@@ -24,6 +24,9 @@ public class AdminController implements Initializable {
     private TableColumn<Doctor, String> addressColumn;
 
     @FXML
+    private TableColumn<Doctor, String> specialiteColumn;
+
+    @FXML
     private TableColumn<Doctor, String> dateColumn;
 
     @FXML
@@ -81,6 +84,9 @@ public class AdminController implements Initializable {
     private TextField adressFieldUpdate;
 
     @FXML
+    private TextField spacialiteFieldUpdate;
+
+    @FXML
     private TextField phoneFieldUpdate;
 
     @FXML
@@ -100,6 +106,9 @@ public class AdminController implements Initializable {
 
     @FXML
     private Button manageRooms;
+
+    @FXML
+    private TextField speacialiteField;
 
 
     Statement statement;
@@ -157,7 +166,7 @@ public class AdminController implements Initializable {
 
     @FXML
     public void addDoctorAction() {
-        String query = "INSERT INTO doctors VALUES (?,?,?,?,?,?)";
+        String query = "INSERT INTO doctors VALUES (?,?,?,?,?,?,?)";
 
         try {
             preparedStatement = statement.getConnection().prepareStatement(query);
@@ -167,12 +176,14 @@ public class AdminController implements Initializable {
             preparedStatement.setString(4, adressField.getText());
             preparedStatement.setString(5, phoneField.getText());
             preparedStatement.setString(6, dateField.getValue().toString());
+            preparedStatement.setString(7, speacialiteField.getText());
             preparedStatement.execute();
             firstameField.clear();
             lastnameField.clear();
             adressField.clear();
             phoneField.clear();
             dateField.getEditor().clear();
+            speacialiteField.clear();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Docteur ajouté");
             alert.setHeaderText("Information");
@@ -195,14 +206,15 @@ public class AdminController implements Initializable {
                 String address = resultSet.getString("address");
                 String phone = resultSet.getString("phone");
                 String date = resultSet.getString("date");
+                String specialite = resultSet.getString("specialite");
                 idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty());
                 firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
                 lastnameColumn.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
                 addressColumn.setCellValueFactory(cellData -> cellData.getValue().adresseProperty());
                 dateColumn.setCellValueFactory(cellData -> cellData.getValue().telephoneProperty());
                 phoneColumn.setCellValueFactory(cellData -> cellData.getValue().dateNaissanceProperty());
-                displayDoctorsTable.getItems().clear();
-                displayDoctorsTable.getItems().add(new Doctor(id, firstName, lastName, address, phone, date));
+                specialiteColumn.setCellValueFactory(cellData -> cellData.getValue().specialiteProperty());
+                displayDoctorsTable.getItems().add(new Doctor(id, firstName, lastName, address, phone, date, specialite));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -238,11 +250,12 @@ public class AdminController implements Initializable {
         adressFieldUpdate.setText(doctor.getAdresse());
         dateFieldUpdate.setValue(LocalDate.parse(doctor.getTelephone()));
         phoneFieldUpdate.setText(doctor.getDateNaissance());
+        spacialiteFieldUpdate.setText(doctor.getSpecialite());
     }
 
     @FXML
     public void editDoctorAction() {
-        String query = "UPDATE doctors SET firstName = ?, lastName = ?, address = ?, phone = ?, date = ? WHERE id = ?";
+        String query = "UPDATE doctors SET firstName = ?, lastName = ?, address = ?, phone = ?, date = ?, specialite = ? WHERE id = ?";
         try {
             preparedStatement = statement.getConnection().prepareStatement(query);
             preparedStatement.setString(1, firstameFieldUpdate.getText());
@@ -250,14 +263,15 @@ public class AdminController implements Initializable {
             preparedStatement.setString(3, adressFieldUpdate.getText());
             preparedStatement.setString(4, phoneFieldUpdate.getText());
             preparedStatement.setString(5, dateFieldUpdate.getValue().toString());
-            preparedStatement.setString(6, idFieldUpdate.getText());
+            preparedStatement.setString(6, spacialiteFieldUpdate.getText());
+            preparedStatement.setString(7, idFieldUpdate.getText());
             preparedStatement.execute();
             firstameFieldUpdate.clear();
             lastnameFieldUpdate.clear();
             adressFieldUpdate.clear();
             phoneFieldUpdate.clear();
             dateFieldUpdate.getEditor().clear();
-            idFieldUpdate.clear();
+            spacialiteFieldUpdate.clear();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Docteur modifié");
             alert.setHeaderText("Information");

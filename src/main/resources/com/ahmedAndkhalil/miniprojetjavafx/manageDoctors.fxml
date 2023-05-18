@@ -13,12 +13,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="1488.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.AdminController">
     <children>
-        <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="502.0" prefWidth="226.0" style="-fx-background-color: #263F73;" />
-        <AnchorPane layoutX="224.0" prefHeight="500.0" prefWidth="577.0">
+        <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="509.0" prefWidth="226.0" style="-fx-background-color: #263F73;" />
+        <AnchorPane layoutX="224.0" prefHeight="502.0" prefWidth="655.0">
          <children>
-            <TableView fx:id="displayDoctorsTable" layoutY="180.0" prefHeight="322.0" prefWidth="576.0">
+            <TableView fx:id="displayDoctorsTable" layoutX="-1.0" layoutY="180.0" prefHeight="322.0" prefWidth="654.0">
               <columns>
                 <TableColumn fx:id="idColumn" prefWidth="35.0" text="#" />
                 <TableColumn fx:id="firstNameColumn" prefWidth="121.0" text="Prénom" />
@@ -26,9 +26,10 @@
                   <TableColumn fx:id="addressColumn" prefWidth="93.0" text="Adresse" />
                   <TableColumn fx:id="phoneColumn" prefWidth="87.66668701171875" text="Télephone" />
                   <TableColumn fx:id="dateColumn" prefWidth="135.6666259765625" text="Date de naissance" />
+                  <TableColumn fx:id="specialiteColumn" prefWidth="75.0" text="Spécialité" />
               </columns>
             </TableView>
-            <GridPane layoutX="-1.0" layoutY="130.0" prefHeight="38.0" prefWidth="576.0">
+            <GridPane layoutX="-1.0" layoutY="130.0" prefHeight="38.0" prefWidth="654.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -46,7 +47,7 @@
                </children>
             </GridPane>
          </children></AnchorPane>
-      <AnchorPane layoutX="820.0" layoutY="51.0" prefHeight="399.0" prefWidth="465.0">
+      <AnchorPane layoutX="898.0" layoutY="51.0" prefHeight="399.0" prefWidth="522.0">
          <children>
             <GridPane layoutX="-2.0" layoutY="-1.0" prefHeight="60.0" prefWidth="602.0">
                <columnConstraints>
@@ -66,7 +67,7 @@
                   </Label>
                </children>
             </GridPane>
-            <GridPane layoutX="-1.0" layoutY="68.0" prefHeight="331.0" prefWidth="601.0">
+            <GridPane layoutX="-1.0" layoutY="68.0" prefHeight="331.0" prefWidth="558.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -111,7 +112,10 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="lastnameFieldUpdate" GridPane.columnIndex="3" />
+                  <TextField fx:id="lastnameFieldUpdate" GridPane.columnIndex="3">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin></TextField>
                   <TextField fx:id="firstameFieldUpdate" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="20.0" />
@@ -124,8 +128,13 @@
                      </GridPane.margin>
                   </TextField>
                   <DatePicker fx:id="dateFieldUpdate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button fx:id="updateButton" mnemonicParsing="false" onAction="#editDoctorAction" text="Editer" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                  <Button fx:id="clearButton" layoutX="360.0" layoutY="288.0" mnemonicParsing="false" text="Effacer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <Button fx:id="updateButton" mnemonicParsing="false" onAction="#editDoctorAction" text="Editer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <Label layoutX="62.0" layoutY="42.0" text="Specialite" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="spacialiteFieldUpdate" layoutX="133.0" layoutY="39.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
             </GridPane>
          </children>
@@ -140,7 +149,7 @@
             <Font name="Verdana" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="manageServices"  onAction="#showManageServicesView" layoutX="53.0" layoutY="260.0" mnemonicParsing="false" style="-fx-background-color: #263F73;" text="Gérer Services" textFill="WHITE">
+      <Button fx:id="manageServices" layoutX="53.0" layoutY="260.0" mnemonicParsing="false" onAction="#showManageServicesView" style="-fx-background-color: #263F73;" text="Gérer Services" textFill="WHITE">
          <font>
             <Font name="Verdana" size="14.0" />
          </font>
