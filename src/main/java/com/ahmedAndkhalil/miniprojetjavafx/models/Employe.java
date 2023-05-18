@@ -4,14 +4,15 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Employe {
-    private SimpleIntegerProperty id;
+    private SimpleStringProperty id;
     private final SimpleStringProperty nom;
     private final SimpleStringProperty prenom;
     private final SimpleStringProperty adresse;
     private final SimpleStringProperty dateNaissance;
     private final SimpleStringProperty telephone;
 
-    public Employe(String nom, String prenom, String adresse, String dateNaissance, String telephone) {
+    public Employe(String id, String nom, String prenom, String adresse, String dateNaissance, String telephone) {
+        this.id = new SimpleStringProperty(id);
         this.nom = new SimpleStringProperty(nom);
         this.prenom = new SimpleStringProperty(prenom);
         this.adresse = new SimpleStringProperty(adresse);
@@ -19,15 +20,15 @@ public class Employe {
         this.telephone = new SimpleStringProperty(telephone);
     }
 
-    public int getId() {
+    public String getId() {
         return id.get();
     }
 
-    public SimpleIntegerProperty idProperty() {
+    public SimpleStringProperty idProperty() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id.set(id);
     }
 
