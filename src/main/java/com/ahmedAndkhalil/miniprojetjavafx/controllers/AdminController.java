@@ -154,6 +154,19 @@ public class AdminController implements Initializable {
     }
 
     @FXML
+    public void showManageNursesView() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndkhalil/miniprojetjavafx/manageNurses.fxml"));
+            Stage stage = (Stage) manageNurses.getScene().getWindow();
+            stage.setTitle("Hospital Management System - Manage Nurses");
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void handleAddDoctor() throws IOException {
         // Open the add doctor file in a new window
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndkhalil/miniprojetjavafx/addDoctor.fxml"));
@@ -196,6 +209,7 @@ public class AdminController implements Initializable {
 
     @FXML
     public void getAllDoctors() {
+        displayDoctorsTable.getItems().clear();
         String query = "SELECT * FROM doctors";
         try {
             resultSet = statement.executeQuery(query);
@@ -235,6 +249,7 @@ public class AdminController implements Initializable {
             alert.setContentText("Docteur supprimé avec succès");
             alert.showAndWait();
             displayDoctorsTable.getItems().clear();
+            getAllDoctors();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -278,6 +293,7 @@ public class AdminController implements Initializable {
             alert.setContentText("Docteur modifié avec succès");
             alert.showAndWait();
             displayDoctorsTable.getItems().clear();
+            getAllDoctors();
         } catch (Exception e) {
             e.printStackTrace();
         }

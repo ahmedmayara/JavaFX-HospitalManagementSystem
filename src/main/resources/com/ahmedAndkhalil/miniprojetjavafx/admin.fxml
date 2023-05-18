@@ -14,12 +14,12 @@
                   <Font name="Verdana" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="manageNurses" onAction="#showManageServicesView" layoutX="42.0" layoutY="203.0" mnemonicParsing="false" style="-fx-background-color: #263F73;" text="Gérer Infermiers" textFill="WHITE">
+            <Button fx:id="manageNurses" onAction="#showManageNursesView" layoutX="42.0" layoutY="203.0" mnemonicParsing="false" style="-fx-background-color: #263F73;" text="Gérer Infermiers" textFill="WHITE">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="manageServices" layoutX="43.0" layoutY="250.0" mnemonicParsing="false" style="-fx-background-color: #263F73;" text="Gérer Services" textFill="WHITE">
+            <Button fx:id="manageServices" onAction="#showManageServicesView" layoutX="43.0" layoutY="250.0" mnemonicParsing="false" style="-fx-background-color: #263F73;" text="Gérer Services" textFill="WHITE">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>

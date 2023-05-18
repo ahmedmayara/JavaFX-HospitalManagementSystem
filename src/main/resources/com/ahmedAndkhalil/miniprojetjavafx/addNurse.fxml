@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.AdminController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.ManageNursesController">
     <children>
         <GridPane layoutX="-2.0" layoutY="-1.0" prefHeight="60.0" prefWidth="602.0">
             <columnConstraints>
@@ -85,12 +85,12 @@
                     </GridPane.margin>
                 </TextField>
                 <DatePicker fx:id="dateField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Button fx:id="addButton" mnemonicParsing="false" onAction="#addDoctorAction" text="Ajouter" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                <Button fx:id="addNurseButton" onAction="#addNurseAction" mnemonicParsing="false" text="Ajouter" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
                 <Button fx:id="clearButton" layoutX="360.0" layoutY="288.0" mnemonicParsing="false" text="Effacer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Salaire" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField fx:id="salaireField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Grade" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="gradeField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             </children>
         </GridPane>
     </children>

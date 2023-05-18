@@ -13,12 +13,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="1488.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="892.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.AdminController">
     <children>
-        <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="509.0" prefWidth="226.0" style="-fx-background-color: #263F73;" />
+        <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="675.0" prefWidth="226.0" style="-fx-background-color: #263F73;" />
         <AnchorPane layoutX="224.0" prefHeight="502.0" prefWidth="655.0">
          <children>
-            <TableView fx:id="displayDoctorsTable" layoutX="-1.0" layoutY="180.0" prefHeight="322.0" prefWidth="654.0">
+            <TableView fx:id="displayDoctorsTable" layoutX="-1.0" layoutY="52.0" prefHeight="322.0" prefWidth="654.0">
               <columns>
                 <TableColumn fx:id="idColumn" prefWidth="35.0" text="#" />
                 <TableColumn fx:id="firstNameColumn" prefWidth="121.0" text="Prénom" />
@@ -29,7 +29,7 @@
                   <TableColumn fx:id="specialiteColumn" prefWidth="75.0" text="Spécialité" />
               </columns>
             </TableView>
-            <GridPane layoutX="-1.0" layoutY="130.0" prefHeight="38.0" prefWidth="654.0">
+            <GridPane layoutX="-1.0" layoutY="14.0" prefHeight="38.0" prefWidth="654.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -46,28 +46,12 @@
                   <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteDoctor" text="Supprimer" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
                </children>
             </GridPane>
-         </children></AnchorPane>
-      <AnchorPane layoutX="898.0" layoutY="51.0" prefHeight="399.0" prefWidth="522.0">
-         <children>
-            <GridPane layoutX="-2.0" layoutY="-1.0" prefHeight="60.0" prefWidth="602.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label text="Editer un docteur">
-                     <GridPane.margin>
-                        <Insets left="50.0" />
-                     </GridPane.margin>
-                     <font>
-                        <Font name="Verdana Bold" size="20.0" />
-                     </font>
-                  </Label>
-               </children>
-            </GridPane>
-            <GridPane layoutX="-1.0" layoutY="68.0" prefHeight="331.0" prefWidth="558.0">
+            <Label layoutX="230.0" layoutY="380.0" text="Editer un docteur">
+               <font>
+                  <Font name="Verdana Bold" size="20.0" />
+               </font>
+            </Label>
+            <GridPane layoutX="61.0" layoutY="399.0" prefHeight="277.0" prefWidth="534.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -115,7 +99,8 @@
                   <TextField fx:id="lastnameFieldUpdate" GridPane.columnIndex="3">
                      <GridPane.margin>
                         <Insets right="20.0" />
-                     </GridPane.margin></TextField>
+                     </GridPane.margin>
+                  </TextField>
                   <TextField fx:id="firstameFieldUpdate" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="20.0" />
@@ -137,6 +122,17 @@
                   <TextField fx:id="spacialiteFieldUpdate" layoutX="133.0" layoutY="39.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
             </GridPane>
+         </children></AnchorPane>
+      <AnchorPane layoutX="1033.0" layoutY="-44.0" prefHeight="399.0" prefWidth="522.0">
+         <children>
+            <GridPane layoutX="-2.0" layoutY="-1.0" prefHeight="60.0" prefWidth="602.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
          </children>
       </AnchorPane>
       <Button fx:id="manageDoctors" layoutX="53.0" layoutY="167.0" mnemonicParsing="false" onAction="#handleManageDoctors" style="-fx-background-color: #263F73;" text="Gérer Docteurs" textFill="WHITE">
@@ -144,7 +140,7 @@
             <Font name="Verdana" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="manageNurses" layoutX="52.0" layoutY="213.0" mnemonicParsing="false" style="-fx-background-color: #263F73;" text="Gérer Infermiers" textFill="WHITE">
+      <Button fx:id="manageNurses" layoutX="52.0" layoutY="213.0" mnemonicParsing="false" onAction="#showManageNursesView" style="-fx-background-color: #263F73;" text="Gérer Infermiers" textFill="WHITE">
          <font>
             <Font name="Verdana" size="14.0" />
          </font>

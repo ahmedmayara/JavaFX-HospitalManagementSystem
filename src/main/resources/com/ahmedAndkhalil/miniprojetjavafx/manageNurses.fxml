@@ -14,25 +14,26 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.ManageNursesController">
     <children>
         <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="695.0" prefWidth="236.0" style="-fx-background-color: #263F73;" />
         <AnchorPane layoutX="227.0" prefHeight="500.0" prefWidth="577.0">
             <children>
-                <TableView fx:id="displayDoctorsTable" layoutX="17.0" layoutY="58.0" prefHeight="322.0" prefWidth="570.0">
+                <TableView fx:id="displayNursesTable" layoutX="17.0" layoutY="58.0" prefHeight="322.0" prefWidth="570.0">
                     <columns>
                         <TableColumn fx:id="idColumn" prefWidth="35.0" text="#" />
                         <TableColumn fx:id="firstNameColumn" prefWidth="51.0" text="Prénom" />
                         <TableColumn fx:id="lastnameColumn" prefWidth="55.0" text="Nom" />
                         <TableColumn fx:id="addressColumn" prefWidth="71.0" text="Adresse" />
                         <TableColumn fx:id="phoneColumn" prefWidth="67.0" text="Télephone" />
-                        <TableColumn fx:id="dateColumn" prefWidth="110.0" text="Date de naissance" />
-                  <TableColumn fx:id="dateColumn1" prefWidth="61.0" text="Salaire" />
-                  <TableColumn fx:id="dateColumn11" prefWidth="69.0" text="Grade" />
+                        <TableColumn fx:id="dateColumn" prefWidth="139.0" text="Date de naissance" />
+                  <TableColumn fx:id="salaireColumn" prefWidth="69.0" text="Salaire" />
+                  <TableColumn fx:id="gradeColumn" prefWidth="81.0" text="Grade" />
                     </columns>
                 </TableView>
                 <GridPane layoutX="16.0" layoutY="14.0" prefHeight="38.0" prefWidth="576.0">
                     <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -42,10 +43,11 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Button fx:id="consultButton" mnemonicParsing="false" onAction="#getAllDoctors" text="Consulter" GridPane.halignment="CENTER" />
-                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAddDoctor" text="Ajouter" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                        <Button fx:id="editButton" mnemonicParsing="false" onAction="#setFields" text="Select" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteDoctor" text="Supprimer" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                        <Button fx:id="consultButton" mnemonicParsing="false" onAction="#getAllNurses" text="Consulter" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#showAddNurseView" text="Ajouter" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                        <Button fx:id="selectButton" mnemonicParsing="false" onAction="#setFields" text="Select" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteNurse" text="Supprimer" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
+
                     </children>
                 </GridPane>
                 <GridPane layoutX="44.0" layoutY="392.0" prefHeight="247.0" prefWidth="521.0">
@@ -108,12 +110,11 @@
                             </GridPane.margin>
                         </TextField>
                         <DatePicker fx:id="dateFieldUpdate" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#editDoctorAction" prefHeight="42.0" prefWidth="70.0" text="Editer" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                        <Button fx:id="clearButton" layoutX="360.0" layoutY="288.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="73.0" text="Effacer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#editNurseAction" prefHeight="42.0" prefWidth="70.0" text="Editer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
                   <Text layoutX="50.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salaire" wrappingWidth="36.845703125" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Grade" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <TextField fx:id="salaireFieldUpdate" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="gradeFieldUpdate" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                     </children>
                 </GridPane>
                   <Label layoutX="225.0" layoutY="380.0" prefHeight="16.0" prefWidth="228.0" text="Editer un infermier">
@@ -122,7 +123,7 @@
                       </font>
                   </Label>
             </children></AnchorPane>
-        <Button fx:id="manageDoctors" layoutX="53.0" layoutY="167.0" mnemonicParsing="false" onAction="#handleManageDoctors" style="-fx-background-color: #263F73;" text="Gérer Docteurs" textFill="WHITE">
+        <Button fx:id="manageDoctors" layoutX="53.0" layoutY="167.0" onAction="#handleManageDoctors" mnemonicParsing="false" style="-fx-background-color: #263F73;" text="Gérer Docteurs" textFill="WHITE">
             <font>
                 <Font name="Verdana" size="14.0" />
             </font>
@@ -132,12 +133,12 @@
                 <Font name="Verdana" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="manageServices" layoutX="53.0" layoutY="260.0" mnemonicParsing="false" onAction="#showManageServicesView" style="-fx-background-color: #263F73;" text="Gérer Services" textFill="WHITE">
+        <Button fx:id="manageServices" layoutX="53.0" layoutY="260.0" onAction="#showManageServicesView" mnemonicParsing="false" style="-fx-background-color: #263F73;" text="Gérer Services" textFill="WHITE">
             <font>
                 <Font name="Verdana" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="manageRooms" layoutX="53.0" layoutY="306.0" mnemonicParsing="false" style="-fx-background-color: #263F73;" text="Gérer Salles" textFill="WHITE">
+        <Button fx:id="manageRooms" layoutX="53.0" layoutY="306.0"  mnemonicParsing="false" style="-fx-background-color: #263F73;" text="Gérer Salles" textFill="WHITE">
             <font>
                 <Font name="Verdana" size="14.0" />
             </font>
