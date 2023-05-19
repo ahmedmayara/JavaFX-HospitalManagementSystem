@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ahmedAndkhalil/miniprojetjavafx/controllers/AddRoomController.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/ahmedAndkhalil/miniprojetjavafx/controllers/AdminController.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/ahmedAndkhalil/miniprojetjavafx/controllers/AuthController.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/ahmedAndkhalil/miniprojetjavafx/controllers/ManageNursesController.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ahmedAndkhalil/miniprojetjavafx/controllers/ManageRoomsController.java" dialect="MySQL" />
   </component>
 </project>

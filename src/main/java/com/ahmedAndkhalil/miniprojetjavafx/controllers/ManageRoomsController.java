@@ -1,11 +1,13 @@
 package com.ahmedAndkhalil.miniprojetjavafx.controllers;
 
 import com.ahmedAndkhalil.miniprojetjavafx.database.DatabaseConnection;
+import com.ahmedAndkhalil.miniprojetjavafx.models.Doctor;
 import com.ahmedAndkhalil.miniprojetjavafx.models.Nurse;
 import com.ahmedAndkhalil.miniprojetjavafx.models.Salle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -78,6 +80,22 @@ public class ManageRoomsController implements Initializable {
     @FXML
     private Button updateButton;
 
+    @FXML
+    private TextField addBedsField;
+
+    @FXML
+    private TextField addEndField;
+
+    @FXML
+    private ComboBox<Nurse> addInfirmierList;
+
+    @FXML
+    private Button addRoomButton;
+
+    @FXML
+    private TextField addStartField;
+
+
     Statement statement;
 
     PreparedStatement preparedStatement;
@@ -91,12 +109,6 @@ public class ManageRoomsController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty());
-        bedsColumn.setCellValueFactory(cellData -> cellData.getValue().nbrLitsProperty());
-        startColumn.setCellValueFactory(cellData -> cellData.getValue().heureDebutProperty());
-        endColumn.setCellValueFactory(cellData -> cellData.getValue().heureFinProperty());
-        surveillantColumn.setCellValueFactory(cellData -> cellData.getValue().infirmierProperty());
 
         displayRoomsTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -123,6 +135,20 @@ public class ManageRoomsController implements Initializable {
                 System.out.println(newValue.getId());
             }
         });
+    }
+
+    @FXML
+    public void showAddRoomView() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndkhalil/miniprojetjavafx/addRoom.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Hospital Management System - Add Room");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -166,16 +192,27 @@ public class ManageRoomsController implements Initializable {
     @FXML
     public void getAllRooms() {
         displayRoomsTable.getItems().clear();
-        String query = "SELECT * FROM salle, nurses WHERE nurses.id = salle.surveillant";
+        String query = "SELECT * FROM salle";
         try {
-            preparedStatement = statement.getConnection().prepareStatement(query);
-            resultSet = preparedStatement.executeQuery();
+            resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 String id = resultSet.getString("numero");
                 String beds = resultSet.getString("nombreLits");
                 String start = resultSet.getString("heureDebut");
                 String end = resultSet.getString("heureFin");
-                String nurse = resultSet.getString("lastName") + " " + resultSet.getString("firstName");
+                String nurse = resultSet.getString("surveillant");
+                String query2 = "SELECT * FROM nurses WHERE id = ?";
+                preparedStatement = statement.getConnection().prepareStatement(query2);
+                preparedStatement.setString(1, nurse);
+                ResultSet resultSet2 = preparedStatement.executeQuery();
+                while (resultSet2.next()) {
+                    nurse = resultSet2.getString("lastName") + " " + resultSet2.getString("firstName");
+                }
+                idColumn.setCellValueFactory(Celldata -> Celldata.getValue().idProperty());
+                bedsColumn.setCellValueFactory(Celldata -> Celldata.getValue().nbrLitsProperty());
+                startColumn.setCellValueFactory(Celldata -> Celldata.getValue().heureDebutProperty());
+                endColumn.setCellValueFactory(Celldata -> Celldata.getValue().heureFinProperty());
+                surveillantColumn.setCellValueFactory(Celldata -> Celldata.getValue().infirmierProperty());
                 displayRoomsTable.getItems().add(new Salle(id, beds, start, end, nurse));
             }
         } catch (Exception e) {
@@ -195,6 +232,33 @@ public class ManageRoomsController implements Initializable {
             alert.setHeaderText("Suppression de la salle");
             alert.setContentText("La salle a été supprimée avec succès");
             alert.showAndWait();
+            getAllRooms();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void editRoomAction() {
+        String query = "UPDATE salle SET nombreLits = ?, heureDebut = ?, heureFin = ?, surveillant = ? WHERE numero = ?";
+        try {
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, bedsFieldUpdate.getText());
+            preparedStatement.setString(2, startFieldUpdate.getText());
+            preparedStatement.setString(3, endFieldUpdate.getText());
+            preparedStatement.setString(4, infirmierDropdown.getSelectionModel().getSelectedItem().getId());
+            preparedStatement.setString(5, idFieldUpdate.getText());
+            preparedStatement.execute();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText("Modification de la salle");
+            alert.setContentText("La salle a été modifiée avec succès");
+            alert.showAndWait();
+            bedsFieldUpdate.clear();
+            startFieldUpdate.clear();
+            endFieldUpdate.clear();
+            infirmierDropdown.getSelectionModel().clearSelection();
+            idFieldUpdate.clear();
             getAllRooms();
         } catch (Exception e) {
             e.printStackTrace();

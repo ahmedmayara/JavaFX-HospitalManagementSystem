@@ -39,7 +39,7 @@
                     </rowConstraints>
                     <children>
                         <Button fx:id="consultButton" onAction="#getAllRooms" mnemonicParsing="false" text="Consulter" GridPane.halignment="CENTER" />
-                        <Button fx:id="addButton" mnemonicParsing="false" text="Ajouter" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                        <Button fx:id="addButton" onAction="#showAddRoomView" mnemonicParsing="false" text="Ajouter" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                         <Button fx:id="editButton" mnemonicParsing="false" text="Select" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
                         <Button fx:id="deleteButton" onAction="#handleDeleteRoom" mnemonicParsing="false" text="Supprimer" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
                     </children>
@@ -100,7 +100,7 @@
                             </GridPane.margin>
                         </TextField>
                         <TextField fx:id="startFieldUpdate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button fx:id="updateButton" mnemonicParsing="false" text="Editer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <Button fx:id="updateButton" onAction="#editRoomAction" mnemonicParsing="false" text="Editer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                   <ComboBox fx:id="infirmierDropdown" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                     </children>
                 </GridPane>
