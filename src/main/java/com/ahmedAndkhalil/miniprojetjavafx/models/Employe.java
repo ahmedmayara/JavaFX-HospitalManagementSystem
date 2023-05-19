@@ -91,4 +91,9 @@ public class Employe {
     public void setTelephone(String telephone) {
         this.telephone.set(telephone);
     }
+
+    @Override
+    public String toString() {
+        return nom.get() + " " + prenom.get();
+    }
 }

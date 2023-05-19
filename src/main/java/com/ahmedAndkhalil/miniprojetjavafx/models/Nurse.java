@@ -35,4 +35,9 @@ public class Nurse extends Employe{
     public void setSalaire(String salaire) {
         this.salaire.set(salaire);
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
