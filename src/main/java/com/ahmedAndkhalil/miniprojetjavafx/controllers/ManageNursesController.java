@@ -184,6 +184,19 @@ public class ManageNursesController implements Initializable {
         }
     }
 
+    @FXML
+    public void showManageRoomsView() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndkhalil/miniprojetjavafx/manageRooms.fxml"));
+            Stage stage = (Stage) manageRooms.getScene().getWindow();
+            stage.setTitle("Hospital Management System - Manage Rooms");
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

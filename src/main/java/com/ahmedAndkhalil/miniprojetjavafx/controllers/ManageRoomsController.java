@@ -190,6 +190,19 @@ public class ManageRoomsController implements Initializable {
     }
 
     @FXML
+    public void showManageRoomsView() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndkhalil/miniprojetjavafx/manageRooms.fxml"));
+            Stage stage = (Stage) manageRooms.getScene().getWindow();
+            stage.setTitle("Hospital Management System - Manage Rooms");
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void getAllRooms() {
         displayRoomsTable.getItems().clear();
         String query = "SELECT * FROM salle";
