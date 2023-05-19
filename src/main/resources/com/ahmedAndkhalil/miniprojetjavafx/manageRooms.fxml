@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.DropdownButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -13,20 +15,18 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="892.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="868.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.AdminController">
     <children>
-        <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="675.0" prefWidth="226.0" style="-fx-background-color: #263F73;" />
-        <AnchorPane layoutX="224.0" prefHeight="502.0" prefWidth="655.0">
+        <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="607.0" prefWidth="226.0" style="-fx-background-color: #263F73;" />
+        <AnchorPane layoutX="215.0" prefHeight="502.0" prefWidth="655.0">
             <children>
-                <TableView fx:id="displayDoctorsTable" layoutX="-1.0" layoutY="52.0" prefHeight="322.0" prefWidth="654.0">
+                <TableView fx:id="displayDoctorsTable" layoutX="104.0" layoutY="52.0" prefHeight="322.0" prefWidth="444.0">
                     <columns>
                         <TableColumn fx:id="idColumn" prefWidth="35.0" text="#" />
-                        <TableColumn fx:id="firstNameColumn" prefWidth="121.0" text="Prénom" />
-                        <TableColumn fx:id="lastnameColumn" prefWidth="104.0" text="Nom" />
-                        <TableColumn fx:id="addressColumn" prefWidth="93.0" text="Adresse" />
-                        <TableColumn fx:id="phoneColumn" prefWidth="87.66668701171875" text="Télephone" />
-                        <TableColumn fx:id="dateColumn" prefWidth="135.6666259765625" text="Date de naissance" />
-                        <TableColumn fx:id="specialiteColumn" prefWidth="75.0" text="Spécialité" />
+                        <TableColumn fx:id="firstNameColumn" prefWidth="121.0" text="Nombre des lit" />
+                        <TableColumn fx:id="lastnameColumn" prefWidth="104.0" text="Heure debut" />
+                        <TableColumn fx:id="addressColumn" prefWidth="93.0" text="Heure fin" />
+                        <TableColumn fx:id="phoneColumn" prefWidth="87.66668701171875" text="Surveillant" />
                     </columns>
                 </TableView>
                 <GridPane layoutX="-1.0" layoutY="14.0" prefHeight="38.0" prefWidth="654.0">
@@ -46,12 +46,12 @@
                         <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteDoctor" text="Supprimer" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
                     </children>
                 </GridPane>
-                <Label layoutX="230.0" layoutY="380.0" text="Editer un docteur">
+                <Label layoutX="230.0" layoutY="380.0" text="Editer une salle">
                     <font>
                         <Font name="Verdana Bold" size="20.0" />
                     </font>
                 </Label>
-                <GridPane layoutX="61.0" layoutY="399.0" prefHeight="277.0" prefWidth="534.0">
+                <GridPane layoutX="61.0" layoutY="399.0" prefHeight="282.0" prefWidth="534.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -65,27 +65,22 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Label text="Nom : " GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                        <Label text="Nombre des lit" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                             <font>
                                 <Font size="13.0" />
                             </font>
                         </Label>
-                        <Label layoutX="66.0" layoutY="34.0" text="Prénom : " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <Label layoutX="66.0" layoutY="34.0" text="Heure fin" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                             <font>
                                 <Font size="13.0" />
                             </font>
                         </Label>
-                        <Label layoutX="66.0" layoutY="34.0" text="Telephone : " GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <Label layoutX="66.0" layoutY="34.0" text="Heure debut " GridPane.halignment="CENTER" GridPane.rowIndex="1">
                             <font>
                                 <Font size="13.0" />
                             </font>
                         </Label>
-                        <Label layoutX="50.0" layoutY="101.0" text="Adresse :" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                            <font>
-                                <Font size="13.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="50.0" layoutY="125.0" text="Date de naissance :" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                        <Label layoutX="50.0" layoutY="125.0" text="Surveillant" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                             <font>
                                 <Font size="13.0" />
                             </font>
@@ -107,19 +102,15 @@
                             </GridPane.margin>
                         </TextField>
                         <TextField fx:id="phoneFieldUpdate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="adressFieldUpdate" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                            <GridPane.margin>
-                                <Insets right="20.0" />
-                            </GridPane.margin>
-                        </TextField>
-                        <DatePicker fx:id="dateFieldUpdate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#editDoctorAction" text="Editer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                        <Label layoutX="62.0" layoutY="42.0" text="Specialite" GridPane.halignment="CENTER" GridPane.rowIndex="3">
-                            <font>
-                                <Font size="13.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="spacialiteFieldUpdate" layoutX="133.0" layoutY="39.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#editDoctorAction" text="Editer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <DropdownButton GridPane.columnIndex="1" GridPane.rowIndex="2">
+                      <items>
+                          <MenuItem text="Choice 1" />
+                          <MenuItem text="Choice 2" />
+                          <MenuItem text="Choice 3" />
+                      </items>
+                  </DropdownButton>
+                  <ComboBox prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                     </children>
                 </GridPane>
             </children></AnchorPane>
