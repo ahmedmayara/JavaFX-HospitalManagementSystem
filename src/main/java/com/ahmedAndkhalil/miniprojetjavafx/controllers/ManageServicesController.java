@@ -338,6 +338,20 @@ public class ManageServicesController implements Initializable {
     }
 
     @FXML
+    public void showAddServiceView() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndkhalil/miniprojetjavafx/addService.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Hospital Management System - Add Room");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void handleManageDoctors() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndkhalil/miniprojetjavafx/manageDoctors.fxml"));
@@ -386,5 +400,12 @@ public class ManageServicesController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void refreshTable() {
+        refreshTableServicesTable();
+        refreshTableRoomsTable();
+        refreshRoomsDropdown();
     }
 }
