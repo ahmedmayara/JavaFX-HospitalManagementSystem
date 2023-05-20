@@ -14,23 +14,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="892.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1013.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.ManageServicesController">
     <children>
         <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="675.0" prefWidth="226.0" style="-fx-background-color: #263F73;" />
         <AnchorPane layoutX="224.0" layoutY="-1.0" prefHeight="502.0" prefWidth="655.0">
             <children>
-                <TableView fx:id="displayDoctorsTable" layoutX="-1.0" layoutY="52.0" prefHeight="322.0" prefWidth="322.0">
+                <TableView fx:id="displayServicesTable" layoutX="-1.0" layoutY="52.0" prefHeight="322.0" prefWidth="345.0">
                     <columns>
                         <TableColumn fx:id="idColumn" prefWidth="35.0" text="#" />
-                        <TableColumn fx:id="lastnameColumn" prefWidth="104.0" text="Nom" />
-                        <TableColumn fx:id="addressColumn" prefWidth="93.0" text="Directeur" />
-                        <TableColumn fx:id="phoneColumn" prefWidth="87.66668701171875" text="Bloc" />
+                        <TableColumn fx:id="nameColumn" prefWidth="104.0" text="Nom" />
+                        <TableColumn fx:id="managerColumn" prefWidth="93.0" text="Directeur" />
+                        <TableColumn fx:id="blocColumn" prefWidth="112.0" text="Bloc" />
                     </columns>
                 </TableView>
-                <GridPane layoutX="-1.0" layoutY="14.0" prefHeight="38.0" prefWidth="654.0">
+                <GridPane layoutX="-1.0" layoutY="14.0" prefHeight="38.0" prefWidth="788.0">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -38,13 +36,11 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Button fx:id="consultButton" mnemonicParsing="false" onAction="#getAllDoctors" text="Consulter" GridPane.halignment="CENTER" />
-                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAddDoctor" text="Ajouter" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                        <Button fx:id="editButton" mnemonicParsing="false" onAction="#setFields" prefWidth="56.0" text="Select" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteDoctor" text="Supprimer" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                        <Button fx:id="addButton" mnemonicParsing="false" text="Ajouter" GridPane.halignment="CENTER" />
+                        <Button fx:id="deleteButton" mnemonicParsing="false" text="Supprimer" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                     </children>
                 </GridPane>
-                <GridPane layoutX="61.0" layoutY="399.0" prefHeight="277.0" prefWidth="534.0">
+                <GridPane layoutX="71.0" layoutY="414.0" prefHeight="277.0" prefWidth="534.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -79,49 +75,36 @@
                                 <Font size="13.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="lastnameFieldUpdate" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <TextField fx:id="nameFieldUpdate" GridPane.columnIndex="3" GridPane.rowIndex="1">
                             <GridPane.margin>
                                 <Insets right="20.0" />
                             </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="firstameFieldUpdate" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <TextField fx:id="blocFieldUpdate" GridPane.columnIndex="3" GridPane.rowIndex="2">
                             <GridPane.margin>
                                 <Insets right="20.0" />
                             </GridPane.margin>
                         </TextField>
-                        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#editDoctorAction" text="Editer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                  <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="updateButton" mnemonicParsing="false" text="Editer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="managerDropdown" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                     </children>
                 </GridPane>
-            <TableView fx:id="displayDoctorsTable1" layoutX="439.0" layoutY="52.0" prefHeight="322.0" prefWidth="226.0">
+            <TableView fx:id="displayRoomsTable" layoutX="492.0" layoutY="52.0" prefHeight="322.0" prefWidth="296.0">
                <columns>
-                  <TableColumn fx:id="idColumn1" prefWidth="35.0" text="#" />
-                  <TableColumn fx:id="phoneColumn1" prefWidth="87.66668701171875" text="id" />
-                  <TableColumn fx:id="phoneColumn11" prefWidth="102.0" text="Nombre lits" />
+                  <TableColumn fx:id="roomsIdColumn" prefWidth="52.0" text="#" />
+                  <TableColumn fx:id="roomsManagerColumn" prefWidth="131.0" text="Directeur" />
+                  <TableColumn fx:id="bedsColumn" prefWidth="112.0" text="Nombre lits" />
                </columns>
             </TableView>
-                <Label layoutX="243.0" layoutY="374.0" text="Editer un service">
+                <Label layoutX="243.0" layoutY="389.0" text="Editer un service">
                     <font>
                         <Font name="Verdana Bold" size="20.0" />
                     </font>
                 </Label>
-            <Button layoutX="354.0" layoutY="201.0" mnemonicParsing="false" text="Ajouter" />
-            <ComboBox layoutX="328.0" layoutY="243.0" prefHeight="25.0" prefWidth="107.0" />
-            <Text layoutX="330.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter une salle a un service " textAlignment="CENTER" wrappingWidth="103.99999999999989" />
-            <Button layoutX="499.0" layoutY="362.0" mnemonicParsing="false" text="Afficher les salles" />
+            <Button fx:id="addRoomToServiceButton" layoutX="393.0" layoutY="201.0" mnemonicParsing="false" text="Ajouter" />
+            <ComboBox fx:id="roomsDropdown" layoutX="368.0" layoutY="243.0" prefHeight="25.0" prefWidth="107.0" />
+            <Text layoutX="368.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter une salle a un service " textAlignment="CENTER" wrappingWidth="103.99999999999989" />
             </children></AnchorPane>
-        <AnchorPane layoutX="1033.0" layoutY="-44.0" prefHeight="399.0" prefWidth="522.0">
-            <children>
-                <GridPane layoutX="-2.0" layoutY="-1.0" prefHeight="60.0" prefWidth="602.0">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                </GridPane>
-            </children>
-        </AnchorPane>
         <Button fx:id="manageDoctors" layoutX="53.0" layoutY="167.0" mnemonicParsing="false" onAction="#handleManageDoctors" style="-fx-background-color: #263F73;" text="Gérer Docteurs" textFill="WHITE">
             <font>
                 <Font name="Verdana" size="14.0" />

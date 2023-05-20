@@ -7,28 +7,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Service {
-    private SimpleIntegerProperty id;
+    private SimpleStringProperty id;
     private final SimpleStringProperty nom;
     private final SimpleStringProperty bloc;
-    private Doctor directeur;
+    private final SimpleStringProperty docteur;
 
-    private List<Salle> salles = new ArrayList<>();
-
-    public Service(String nom, String bloc, Doctor directeur) {
+    public Service(String id, String nom, String bloc, String docteur) {
+        this.id = new SimpleStringProperty(id);
         this.nom = new SimpleStringProperty(nom);
         this.bloc = new SimpleStringProperty(bloc);
-        this.directeur = directeur;
+        this.docteur = new SimpleStringProperty(docteur);
     }
 
-    public int getId() {
+    public String getId() {
         return id.get();
     }
 
-    public SimpleIntegerProperty idProperty() {
+    public SimpleStringProperty idProperty() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id.set(id);
     }
 
@@ -56,19 +55,15 @@ public class Service {
         this.bloc.set(bloc);
     }
 
-    public Doctor getDirecteur() {
-        return directeur;
+    public String getDocteur() {
+        return docteur.get();
     }
 
-    public void setDirecteur(Doctor directeur) {
-        this.directeur = directeur;
+    public SimpleStringProperty docteurProperty() {
+        return docteur;
     }
 
-    public List<Salle> getSalles() {
-        return salles;
-    }
-
-    public void setSalles(List<Salle> salles) {
-        this.salles = salles;
+    public void setDocteur(String docteur) {
+        this.docteur.set(docteur);
     }
 }

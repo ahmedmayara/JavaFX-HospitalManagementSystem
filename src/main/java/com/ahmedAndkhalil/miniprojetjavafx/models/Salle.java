@@ -17,6 +17,12 @@ public class Salle {
         this.infirmier = new SimpleStringProperty(infirmier);
     }
 
+    public Salle(String id, String nbrLits, String infirmier) {
+        this.id = new SimpleStringProperty(id);
+        this.nbrLits = new SimpleStringProperty(nbrLits);
+        this.infirmier = new SimpleStringProperty(infirmier);
+    }
+
     public String getId() {
         return id.get();
     }
@@ -79,12 +85,6 @@ public class Salle {
 
     @Override
     public String toString() {
-        return "Salle{" +
-                "id=" + id +
-                ", nbrLits=" + nbrLits +
-                ", heureDebut=" + heureDebut +
-                ", heureFin=" + heureFin +
-                ", infirmier=" + infirmier +
-                '}';
+        return "Salle numero " + id.get() + " avec " + nbrLits.get() + " lits";
     }
 }
