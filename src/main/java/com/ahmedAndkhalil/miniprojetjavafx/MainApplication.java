@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("doctor-dashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
         stage.setTitle("Hospital Management System - Login");
         stage.setScene(new Scene(fxmlLoader.load()));
         stage.show();

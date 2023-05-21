@@ -31,14 +31,14 @@
             <Font size="27.0" />
          </font>
       </Text>
-      <Button fx:id="consulter" layoutX="381.0" layoutY="265.0" mnemonicParsing="false" onAction="#getAllPatients" prefHeight="25.0" prefWidth="103.0" text="Consulter" />
+      <Button fx:id="consulter" layoutX="381.0" layoutY="265.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Consulter" />
       <Text layoutX="112.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ecrire une ordonnance :" wrappingWidth="157.16796875">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
       <TextArea fx:id="ordonnanceField" layoutX="35.0" layoutY="299.0" prefHeight="172.0" prefWidth="311.0" />
-      <Button fx:id="ajouter" layoutX="145.0" layoutY="459.0" mnemonicParsing="false" onAction="#AddOrdonnance" prefHeight="25.0" prefWidth="91.0" text="Ajouter " />
+      <Button fx:id="ajouter" layoutX="145.0" layoutY="459.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Ajouter " />
       <Text layoutX="647.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diagnostic" wrappingWidth="74.0">
          <font>
             <Font size="15.0" />

@@ -119,7 +119,7 @@ public class InfermierController implements Initializable {
                 alert.setContentText("La salle est pleine");
                 alert.showAndWait();
             } else {
-                String addQuery = "INSERT INTO patient (nom, prenom, adresse, telephone, service, numeroLit, numeroSalle, docteur, diagnostic) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                String addQuery = "INSERT INTO patient (nom, prenom, adresse, telephone, service, numeroLit, numeroSalle, docteur, diagnostic, ordonnance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 try {
                     preparedStatement = statement.getConnection().prepareStatement(addQuery);
                     preparedStatement.setString(1, lastnameField.getText());
@@ -131,6 +131,7 @@ public class InfermierController implements Initializable {
                     preparedStatement.setString(7, roomDropdown.getSelectionModel().getSelectedItem().idProperty().getValue());
                     preparedStatement.setString(8, doctorDropdown.getSelectionModel().getSelectedItem().idProperty().getValue());
                     preparedStatement.setString(9, diagnosticTextArea.getText());
+                    preparedStatement.setString(10, "Aucune ordonnance");
                     preparedStatement.executeUpdate();
 
                     String updateRoomQuery = "UPDATE salle SET nombreLits = nombreLits - 1 WHERE numero = ?";

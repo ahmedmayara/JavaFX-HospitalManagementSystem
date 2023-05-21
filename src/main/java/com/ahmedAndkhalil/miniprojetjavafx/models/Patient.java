@@ -15,19 +15,8 @@ public class Patient {
     private final SimpleStringProperty numeroSalle;
     private final SimpleStringProperty docteur;
     private final SimpleStringProperty diagnostic;
-    private final SimpleStringProperty iDordonnance;
+    private final SimpleStringProperty ordonnance;
 
-    public String getiDordonnance() {
-        return iDordonnance.get();
-    }
-
-    public SimpleStringProperty iDordonnanceProperty() {
-        return iDordonnance;
-    }
-
-    public void setiDordonnance(String iDordonnance) {
-        this.iDordonnance.set(iDordonnance);
-    }
 
     public Patient(String numero, String nom, String prenom, String numeroLit, String adresse, String telephone, String service, String numeroSalle, String docteur, String diagnostic, String iDordonnance) {
         this.numero = new SimpleStringProperty(numero);
@@ -40,7 +29,15 @@ public class Patient {
         this.numeroSalle = new SimpleStringProperty(numeroSalle);
         this.docteur = new SimpleStringProperty(docteur);
         this.diagnostic = new SimpleStringProperty(diagnostic);
-        this.iDordonnance = new SimpleStringProperty(iDordonnance);
+        this.ordonnance = new SimpleStringProperty(iDordonnance);
+    }
+
+    public String getOrdonnance() {
+        return ordonnance.get();
+    }
+
+    public void setOrdonnance(String ordonnance) {
+        this.ordonnance.set(ordonnance);
     }
 
     public String getNumero() {
@@ -168,7 +165,7 @@ public class Patient {
     }
 
     public SimpleStringProperty ordonnanceProperty() {
-        return iDordonnance;
+        return ordonnance;
     }
 
     @Override
@@ -184,7 +181,7 @@ public class Patient {
                 ", numeroSalle=" + numeroSalle +
                 ", docteur=" + docteur +
                 ", diagnostic=" + diagnostic +
-                ", iDordonnance=" + iDordonnance +
+                ", ordonnance=" + ordonnance +
                 '}';
     }
 }

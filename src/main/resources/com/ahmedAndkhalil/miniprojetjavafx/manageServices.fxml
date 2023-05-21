@@ -36,7 +36,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Button fx:id="addButton" mnemonicParsing="false" text="Ajouter" GridPane.halignment="CENTER" />
+                        <Button fx:id="addButton" onAction="#showAddServiceView" mnemonicParsing="false" text="Ajouter" GridPane.halignment="CENTER" />
                         <Button fx:id="deleteButton" mnemonicParsing="false" text="Supprimer" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                     </children>
                 </GridPane>
@@ -85,7 +85,7 @@
                                 <Insets right="20.0" />
                             </GridPane.margin>
                         </TextField>
-                        <Button fx:id="updateButton" mnemonicParsing="false" text="Editer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                        <Button fx:id="updateButton" onAction="#editServiceAction" mnemonicParsing="false" text="Editer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                   <ComboBox fx:id="managerDropdown" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                     </children>
                 </GridPane>
@@ -101,7 +101,7 @@
                         <Font name="Verdana Bold" size="20.0" />
                     </font>
                 </Label>
-            <Button fx:id="addRoomToServiceButton" layoutX="393.0" layoutY="201.0" mnemonicParsing="false" text="Ajouter" />
+            <Button fx:id="addRoomToServiceButton" onAction="#addRoomToService" layoutX="393.0" layoutY="201.0" mnemonicParsing="false" text="Ajouter" />
             <ComboBox fx:id="roomsDropdown" layoutX="368.0" layoutY="243.0" prefHeight="25.0" prefWidth="107.0" />
             <Text layoutX="368.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter une salle a un service " textAlignment="CENTER" wrappingWidth="103.99999999999989" />
             </children></AnchorPane>

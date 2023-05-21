@@ -42,7 +42,7 @@ public class AddRoomController implements Initializable {
         }
 
         addRoomButton.setOnAction(actionEvent -> {
-            String addQuery = "INSERT INTO salle VALUES (?, ?, ?, ?, ?)";
+            String addQuery = "INSERT INTO salle VALUES (?, ?, ?, ?, ?, ?)";
             try {
                 preparedStatement = statement.getConnection().prepareStatement(addQuery);
                 preparedStatement.setString(1, null);
@@ -50,6 +50,7 @@ public class AddRoomController implements Initializable {
                 preparedStatement.setString(3, addStartField.getText());
                 preparedStatement.setString(4, addEndField.getText());
                 preparedStatement.setString(5, null);
+                preparedStatement.setString(6, null);
                 preparedStatement.executeUpdate();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information");

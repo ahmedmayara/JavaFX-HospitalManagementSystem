@@ -71,18 +71,18 @@ public class AuthController {
                         stage.setTitle("Hospital Management System - Doctor");
                         stage.setScene(new Scene(fxmlLoader.load()));
                         stage.show();
-                    } else if (role.equals("INFERMIER")) {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndKhalil/miniprojetjavafx/patient.fxml"));
+                    } else if (role.equals("INFIRMIER")) {
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ahmedAndKhalil/miniprojetjavafx/infermier-dashboard.fxml"));
                         Stage stage = (Stage) loginButton.getScene().getWindow();
-                        stage.setTitle("Hospital Management System - Patient");
+                        stage.setTitle("Hospital Management System - Nurse");
                         stage.setScene(new Scene(fxmlLoader.load()));
                         stage.show();
                     }
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
-                    alert.setHeaderText("Invalid credentials");
-                    alert.setContentText("Please check your credentials");
+                    alert.setHeaderText("Mot de passe ou nom d'utilisateur incorrect");
+                    alert.setContentText("Veuillez réessayer");
                     alert.showAndWait();
                 }
             } catch (Exception e) {

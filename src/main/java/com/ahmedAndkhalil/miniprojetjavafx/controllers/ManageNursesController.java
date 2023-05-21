@@ -302,8 +302,8 @@ public class ManageNursesController implements Initializable {
         adressFieldUpdate.setText(nurse.getAdresse());
         dateFieldUpdate.setValue(LocalDate.parse(nurse.getTelephone()));
         phoneFieldUpdate.setText(nurse.getDateNaissance());
-        salaireFieldUpdate.setText(nurse.getSalaire());
-        gradeFieldUpdate.setText(nurse.getGrade());
+        gradeFieldUpdate.setText(nurse.getSalaire());
+        salaireFieldUpdate.setText(nurse.getGrade());
     }
 
     @FXML
