@@ -125,8 +125,8 @@ public class ManageNursesController implements Initializable {
     @FXML
     private TextField gradeFieldUpdate;
 
-
-
+    @FXML
+    private TextField searchField;
     Statement statement;
 
     PreparedStatement preparedStatement;
@@ -334,6 +334,44 @@ public class ManageNursesController implements Initializable {
             alert.showAndWait();
             displayNursesTable.getItems().clear();
             getAllNurses();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void searchNurses() {
+        String searchQuery = "SELECT * FROM nurses WHERE firstname LIKE ? OR lastname LIKE ? OR address LIKE ? OR phone LIKE ? OR date LIKE ? OR salaire LIKE ? OR grade LIKE ?";
+        try {
+            preparedStatement = statement.getConnection().prepareStatement(searchQuery);
+            preparedStatement.setString(1, "%" + searchField.getText() + "%");
+            preparedStatement.setString(2, "%" + searchField.getText() + "%");
+            preparedStatement.setString(3, "%" + searchField.getText() + "%");
+            preparedStatement.setString(4, "%" + searchField.getText() + "%");
+            preparedStatement.setString(5, "%" + searchField.getText() + "%");
+            preparedStatement.setString(6, "%" + searchField.getText() + "%");
+            preparedStatement.setString(7, "%" + searchField.getText() + "%");
+            resultSet = preparedStatement.executeQuery();
+            displayNursesTable.getItems().clear();
+            while (resultSet.next()) {
+                String id = resultSet.getString("id");
+                String firstname = resultSet.getString("firstname");
+                String lastname = resultSet.getString("lastname");
+                String address = resultSet.getString("address");
+                String phone = resultSet.getString("phone");
+                String date = resultSet.getString("date");
+                String salaire = resultSet.getString("salaire");
+                String grade = resultSet.getString("grade");
+                idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty());
+                firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
+                lastnameColumn.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
+                addressColumn.setCellValueFactory(cellData -> cellData.getValue().adresseProperty());
+                phoneColumn.setCellValueFactory(cellData -> cellData.getValue().telephoneProperty());
+                dateColumn.setCellValueFactory(cellData -> cellData.getValue().dateNaissanceProperty());
+                gradeColumn.setCellValueFactory(cellData -> cellData.getValue().salaireProperty());
+                salaireColumn.setCellValueFactory(cellData -> cellData.getValue().gradeProperty());
+                displayNursesTable.getItems().add(new Nurse(id, firstname, lastname, address, phone, date, salaire, grade));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
