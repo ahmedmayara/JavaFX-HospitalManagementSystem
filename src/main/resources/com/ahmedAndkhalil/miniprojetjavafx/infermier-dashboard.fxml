@@ -38,6 +38,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Nom :" GridPane.halignment="CENTER">
@@ -52,26 +53,44 @@
             </Label>
             <TextField fx:id="lastnameField" GridPane.columnIndex="1" />
             <TextField fx:id="firstnameField" GridPane.columnIndex="3" />
-            <Label layoutX="66.0" layoutY="42.0" text="Salle :" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <Label layoutX="66.0" layoutY="42.0" text="Salle :" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <font>
                   <Font name="Verdana Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="65.0" layoutY="124.0" text="Numéro lit :" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <Label layoutX="65.0" layoutY="124.0" text="Numéro lit :" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <font>
                   <Font name="Verdana Bold" size="14.0" />
                </font>
             </Label>
-            <ComboBox fx:id="roomDropdown" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <TextField fx:id="roomNumberField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label layoutX="65.0" layoutY="124.0" text="Docteur :" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <ComboBox fx:id="roomDropdown" prefWidth="150.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="roomNumberField" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Label layoutX="65.0" layoutY="124.0" text="Docteur :" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <font>
                   <Font name="Verdana Bold" size="14.0" />
                </font>
             </Label>
-            <ComboBox fx:id="doctorDropdown" layoutX="172.0" layoutY="120.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Button fx:id="addPatientButton" mnemonicParsing="false" text="Ajouter Patient" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Button fx:id="clearButton" mnemonicParsing="false" text="Effacer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <ComboBox fx:id="doctorDropdown" layoutX="172.0" layoutY="120.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Button fx:id="addPatientButton" mnemonicParsing="false" text="Ajouter Patient" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Button fx:id="clearButton" mnemonicParsing="false" text="Effacer" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Label layoutX="66.0" layoutY="29.0" text="Adresse :" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label layoutX="52.0" layoutY="83.0" text="Teléphone :" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="phoneField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label layoutX="52.0" layoutY="83.0" text="Service :" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="serviceDropdown" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>

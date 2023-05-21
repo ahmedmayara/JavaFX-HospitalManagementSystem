@@ -7,15 +7,23 @@ public class Patient {
     private final SimpleStringProperty nom;
     private final SimpleStringProperty prenom;
     private final SimpleStringProperty numeroLit;
+    private final SimpleStringProperty adresse;
+
+    private final SimpleStringProperty telephone;
+
+    private final SimpleStringProperty service;
     private final SimpleStringProperty numeroSalle;
     private final SimpleStringProperty docteur;
     private final SimpleStringProperty diagnostic;
 
-    public Patient(SimpleStringProperty numero, SimpleStringProperty nom, SimpleStringProperty prenom, SimpleStringProperty numeroLit, SimpleStringProperty numeroSalle, SimpleStringProperty docteur, SimpleStringProperty diagnostic) {
+    public Patient(SimpleStringProperty numero, SimpleStringProperty nom, SimpleStringProperty prenom, SimpleStringProperty numeroLit, SimpleStringProperty adresse, SimpleStringProperty telephone, SimpleStringProperty service, SimpleStringProperty numeroSalle, SimpleStringProperty docteur, SimpleStringProperty diagnostic) {
         this.numero = numero;
         this.nom = nom;
         this.prenom = prenom;
         this.numeroLit = numeroLit;
+        this.adresse = adresse;
+        this.telephone = telephone;
+        this.service = service;
         this.numeroSalle = numeroSalle;
         this.docteur = docteur;
         this.diagnostic = diagnostic;
@@ -103,5 +111,41 @@ public class Patient {
 
     public void setDiagnostic(String diagnostic) {
         this.diagnostic.set(diagnostic);
+    }
+
+    public String getAdresse() {
+        return adresse.get();
+    }
+
+    public SimpleStringProperty adresseProperty() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse.set(adresse);
+    }
+
+    public String getTelephone() {
+        return telephone.get();
+    }
+
+    public SimpleStringProperty telephoneProperty() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone.set(telephone);
+    }
+
+    public String getService() {
+        return service.get();
+    }
+
+    public SimpleStringProperty serviceProperty() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service.set(service);
     }
 }

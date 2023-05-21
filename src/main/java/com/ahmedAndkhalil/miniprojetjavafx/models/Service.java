@@ -66,4 +66,9 @@ public class Service {
     public void setDocteur(String docteur) {
         this.docteur.set(docteur);
     }
+
+    @Override
+    public String toString() {
+        return "Service " + nom.get() + " " + bloc.get();
+    }
 }
