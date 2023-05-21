@@ -110,7 +110,8 @@ public class AdminController implements Initializable {
     @FXML
     private TextField speacialiteField;
 
-
+    @FXML
+    private TextField searchInput;
     Statement statement;
 
     PreparedStatement preparedStatement;
@@ -307,6 +308,41 @@ public class AdminController implements Initializable {
             alert.showAndWait();
             displayDoctorsTable.getItems().clear();
             getAllDoctors();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void searchDoctors() {
+        String query = "SELECT * FROM doctors WHERE firstName LIKE ? OR lastName LIKE ? OR address LIKE ? OR phone LIKE ? OR date LIKE ? OR specialite LIKE ?";
+        try {
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, "%" + searchInput.getText() + "%");
+            preparedStatement.setString(2, "%" + searchInput.getText() + "%");
+            preparedStatement.setString(3, "%" + searchInput.getText() + "%");
+            preparedStatement.setString(4, "%" + searchInput.getText() + "%");
+            preparedStatement.setString(5, "%" + searchInput.getText() + "%");
+            preparedStatement.setString(6, "%" + searchInput.getText() + "%");
+            resultSet = preparedStatement.executeQuery();
+            displayDoctorsTable.getItems().clear();
+            while (resultSet.next()) {
+                String id = resultSet.getString("id");
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
+                String address = resultSet.getString("address");
+                String phone = resultSet.getString("phone");
+                String date = resultSet.getString("date");
+                String specialite = resultSet.getString("specialite");
+                idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty());
+                firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
+                lastnameColumn.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
+                addressColumn.setCellValueFactory(cellData -> cellData.getValue().adresseProperty());
+                dateColumn.setCellValueFactory(cellData -> cellData.getValue().telephoneProperty());
+                phoneColumn.setCellValueFactory(cellData -> cellData.getValue().dateNaissanceProperty());
+                specialiteColumn.setCellValueFactory(cellData -> cellData.getValue().specialiteProperty());
+                displayDoctorsTable.getItems().add(new Doctor(id, firstName, lastName, address, phone, date, specialite));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

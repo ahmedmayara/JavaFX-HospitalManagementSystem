@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="892.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="892.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.AdminController">
     <children>
-        <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="723.0" prefWidth="226.0" style="-fx-background-color: #263F73;">
+        <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="752.0" prefWidth="226.0" style="-fx-background-color: #263F73;">
          <children>
             <Button fx:id="manageDoctors" layoutX="46.0" layoutY="262.0" mnemonicParsing="false" onAction="#handleManageDoctors" style="-fx-background-color: #263F73;" text="Gérer Docteurs" textFill="WHITE">
                <font>
@@ -32,7 +32,7 @@
                   <Font name="Verdana" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="manageRooms" onAction="#showManageRoomsView" layoutX="46.0" layoutY="401.0" mnemonicParsing="false" style="-fx-background-color: #263F73;" text="Gérer Salles" textFill="WHITE">
+            <Button fx:id="manageRooms" layoutX="46.0" layoutY="401.0" mnemonicParsing="false" onAction="#showManageRoomsView" style="-fx-background-color: #263F73;" text="Gérer Salles" textFill="WHITE">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -40,7 +40,7 @@
          </children></AnchorPane>
         <AnchorPane layoutX="224.0" prefHeight="676.0" prefWidth="672.0">
          <children>
-            <TableView fx:id="displayDoctorsTable" layoutX="6.0" layoutY="63.0" prefHeight="322.0" prefWidth="654.0">
+            <TableView fx:id="displayDoctorsTable" layoutX="6.0" layoutY="93.0" prefHeight="322.0" prefWidth="654.0">
               <columns>
                 <TableColumn fx:id="idColumn" prefWidth="35.0" text="#" />
                 <TableColumn fx:id="firstNameColumn" prefWidth="121.0" text="Prénom" />
@@ -80,12 +80,12 @@
                      </GridPane.margin></Button>
                </children>
             </GridPane>
-            <Label layoutX="241.0" layoutY="401.0" text="Editer un docteur">
+            <Label layoutX="241.0" layoutY="431.0" text="Editer un docteur">
                <font>
                   <Font name="Verdana Bold" size="20.0" />
                </font>
             </Label>
-            <GridPane layoutX="6.0" layoutY="430.0" prefHeight="277.0" prefWidth="654.0">
+            <GridPane layoutX="6.0" layoutY="463.0" prefHeight="277.0" prefWidth="654.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -154,6 +154,23 @@
                      </font>
                   </Label>
                   <TextField fx:id="spacialiteFieldUpdate" layoutX="133.0" layoutY="39.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+            <GridPane layoutX="6.0" layoutY="52.0" prefHeight="30.0" prefWidth="654.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="320.0" minWidth="10.0" prefWidth="90.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="564.0" minWidth="10.0" prefWidth="564.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Chercher :" textAlignment="CENTER" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="searchInput" onAction="#searchDoctors" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children></AnchorPane>
