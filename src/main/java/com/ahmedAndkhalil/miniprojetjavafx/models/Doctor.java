@@ -21,4 +21,5 @@ public class Doctor extends Employe {
     public void setSpecialite(String specialite) {
         this.specialite.set(specialite);
     }
+
 }

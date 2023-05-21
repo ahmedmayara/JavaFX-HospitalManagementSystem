@@ -15,18 +15,32 @@ public class Patient {
     private final SimpleStringProperty numeroSalle;
     private final SimpleStringProperty docteur;
     private final SimpleStringProperty diagnostic;
+    private final SimpleStringProperty iDordonnance;
 
-    public Patient(SimpleStringProperty numero, SimpleStringProperty nom, SimpleStringProperty prenom, SimpleStringProperty numeroLit, SimpleStringProperty adresse, SimpleStringProperty telephone, SimpleStringProperty service, SimpleStringProperty numeroSalle, SimpleStringProperty docteur, SimpleStringProperty diagnostic) {
-        this.numero = numero;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.numeroLit = numeroLit;
-        this.adresse = adresse;
-        this.telephone = telephone;
-        this.service = service;
-        this.numeroSalle = numeroSalle;
-        this.docteur = docteur;
-        this.diagnostic = diagnostic;
+    public String getiDordonnance() {
+        return iDordonnance.get();
+    }
+
+    public SimpleStringProperty iDordonnanceProperty() {
+        return iDordonnance;
+    }
+
+    public void setiDordonnance(String iDordonnance) {
+        this.iDordonnance.set(iDordonnance);
+    }
+
+    public Patient(String numero, String nom, String prenom, String numeroLit, String adresse, String telephone, String service, String numeroSalle, String docteur, String diagnostic, String iDordonnance) {
+        this.numero = new SimpleStringProperty(numero);
+        this.nom = new SimpleStringProperty(nom);
+        this.prenom =   new SimpleStringProperty(prenom);
+        this.numeroLit = new SimpleStringProperty(numeroLit);
+        this.adresse = new SimpleStringProperty(adresse);
+        this.telephone = new SimpleStringProperty(telephone);
+        this.service = new SimpleStringProperty(service);
+        this.numeroSalle = new SimpleStringProperty(numeroSalle);
+        this.docteur = new SimpleStringProperty(docteur);
+        this.diagnostic = new SimpleStringProperty(diagnostic);
+        this.iDordonnance = new SimpleStringProperty(iDordonnance);
     }
 
     public String getNumero() {
@@ -147,5 +161,30 @@ public class Patient {
 
     public void setService(String service) {
         this.service.set(service);
+    }
+
+    public SimpleStringProperty idProperty() {
+        return numero;
+    }
+
+    public SimpleStringProperty ordonnanceProperty() {
+        return iDordonnance;
+    }
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "numero=" + numero +
+                ", nom=" + nom +
+                ", prenom=" + prenom +
+                ", numeroLit=" + numeroLit +
+                ", adresse=" + adresse +
+                ", telephone=" + telephone +
+                ", service=" + service +
+                ", numeroSalle=" + numeroSalle +
+                ", docteur=" + docteur +
+                ", diagnostic=" + diagnostic +
+                ", iDordonnance=" + iDordonnance +
+                '}';
     }
 }

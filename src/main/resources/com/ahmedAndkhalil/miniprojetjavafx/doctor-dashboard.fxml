@@ -4,85 +4,46 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.DoctorDashboard">
+<AnchorPane prefHeight="495.0" prefWidth="855.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahmedAndkhalil.miniprojetjavafx.controllers.DoctorDashboard">
    <children>
-      <BorderPane layoutX="1.0" prefHeight="400.0" prefWidth="600.0">
-         <top>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des patients" BorderPane.alignment="CENTER">
-               <font>
-                  <Font size="32.0" />
-               </font></Text>
-         </top>
-         <bottom>
-            <HBox prefHeight="145.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-               <children>
-                  <VBox prefHeight="145.0" prefWidth="206.0">
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="192.0" text="Selectionner" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Liste medicaments" wrappingWidth="173.13671875">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom de patient">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date visite">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID patient">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="145.0" prefWidth="240.0">
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="225.0" style="-fx-background-color: #ffffff;" />
-                        <TextArea prefHeight="23.0" prefWidth="100.0" />
-                        <TextField />
-                        <TextField />
-                        <TextField />
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="228.0" text="Ajouter ordonnance" />
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="145.0" prefWidth="198.0">
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="187.0" text="Deconexion" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="185.251953125">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-         </bottom>
-         <center>
-            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-              <columns>
-                <TableColumn prefWidth="105.0" text="Nom" />
-                <TableColumn prefWidth="108.0" text="Prenom" />
-                  <TableColumn prefWidth="115.0" text="ID" />
-                  <TableColumn prefWidth="116.0" text="Telephone" />
-                  <TableColumn prefWidth="155.0" text="Adresse" />
-              </columns>
-            </TableView>
-         </center>
-      </BorderPane>
+      <TableView fx:id="displayPatientTable" layoutY="77.0" prefHeight="200.0" prefWidth="852.0">
+         <columns>
+            <TableColumn fx:id="idColumn" prefWidth="59.0" text="ID" />
+            <TableColumn fx:id="nomColumn" prefWidth="66.0" text="Nom" />
+            <TableColumn fx:id="prenomColumn" prefWidth="69.0" text="Prenom" />
+            <TableColumn fx:id="adresseColumn" text="Adresse" />
+            <TableColumn fx:id="telephoneColumn" prefWidth="85.0" text="Telephone" />
+            <TableColumn fx:id="serviceColumn" prefWidth="75.0" text="Service" />
+            <TableColumn fx:id="numeroLitColumn" prefWidth="77.0" text="Numero Lit" />
+            <TableColumn fx:id="numeroSalleColumn" prefWidth="87.0" text="Numero Salle" />
+            <TableColumn fx:id="docteurColumn" prefWidth="72.0" text="Docteur" />
+            <TableColumn fx:id="diagnosticColumn" prefWidth="89.0" text="Diagnostic" />
+            <TableColumn fx:id="ordonnanceColumn" prefWidth="89.0" text="Ordonnance" />
+         </columns>
+      </TableView>
+      <Text layoutX="391.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des patients" />
+      <Text layoutX="346.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Espace docteur">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Button fx:id="consulter" layoutX="381.0" layoutY="265.0" mnemonicParsing="false" onAction="#getAllPatients" prefHeight="25.0" prefWidth="103.0" text="Consulter" />
+      <Text layoutX="112.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ecrire une ordonnance :" wrappingWidth="157.16796875">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="ordonnanceField" layoutX="35.0" layoutY="299.0" prefHeight="172.0" prefWidth="311.0" />
+      <Button fx:id="ajouter" layoutX="145.0" layoutY="459.0" mnemonicParsing="false" onAction="#AddOrdonnance" prefHeight="25.0" prefWidth="91.0" text="Ajouter " />
+      <Text layoutX="647.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diagnostic" wrappingWidth="74.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="diagnosticField" layoutX="528.0" layoutY="299.0" prefHeight="172.0" prefWidth="311.0" />
    </children>
 </AnchorPane>
