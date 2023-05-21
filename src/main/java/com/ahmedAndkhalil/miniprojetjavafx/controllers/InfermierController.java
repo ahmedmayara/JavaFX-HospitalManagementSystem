@@ -6,10 +6,7 @@ import com.ahmedAndkhalil.miniprojetjavafx.models.Salle;
 import com.ahmedAndkhalil.miniprojetjavafx.models.Service;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -47,6 +44,9 @@ public class InfermierController implements Initializable {
 
     @FXML
     private TextField roomNumberField;
+
+    @FXML
+    private TextArea diagnosticTextArea;
 
     Statement statement;
     PreparedStatement preparedStatement;
@@ -106,7 +106,7 @@ public class InfermierController implements Initializable {
         });
 
         addPatientButton.setOnAction(actionEvent -> {
-            if (firstnameField.getText().isEmpty() || lastnameField.getText().isEmpty() || roomNumberField.getText().isEmpty() || doctorDropdown.getSelectionModel().isEmpty() || roomDropdown.getSelectionModel().isEmpty()) {
+            if (firstnameField.getText().isEmpty() || lastnameField.getText().isEmpty() || addressField.getText().isEmpty() || phoneField.getText().isEmpty() || roomNumberField.getText().isEmpty() || doctorDropdown.getSelectionModel().isEmpty() || roomDropdown.getSelectionModel().isEmpty() || serviceDropdown.getSelectionModel().isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Erreur");
                 alert.setHeaderText("Erreur d'ajout d'un patient");
@@ -130,7 +130,7 @@ public class InfermierController implements Initializable {
                     preparedStatement.setString(6, roomNumberField.getText());
                     preparedStatement.setString(7, roomDropdown.getSelectionModel().getSelectedItem().idProperty().getValue());
                     preparedStatement.setString(8, doctorDropdown.getSelectionModel().getSelectedItem().idProperty().getValue());
-                    preparedStatement.setString(9, "Aucun");
+                    preparedStatement.setString(9, diagnosticTextArea.getText());
                     preparedStatement.executeUpdate();
 
                     String updateRoomQuery = "UPDATE salle SET nombreLits = nombreLits - 1 WHERE numero = ?";
@@ -149,6 +149,7 @@ public class InfermierController implements Initializable {
                     addressField.setText("");
                     phoneField.setText("");
                     roomNumberField.setText("");
+                    diagnosticTextArea.setText("");
                     doctorDropdown.getSelectionModel().clearSelection();
                     roomDropdown.getSelectionModel().clearSelection();
                     serviceDropdown.getSelectionModel().clearSelection();

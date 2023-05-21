@@ -69,6 +69,6 @@ public class Service {
 
     @Override
     public String toString() {
-        return "Service " + nom.get() + " " + bloc.get();
+        return nom.get() + " " + bloc.get();
     }
 }
